@@ -1,0 +1,363 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>SCE - Software Department</h1>
+    <p class="lead">Wellcome to sce software department</p>
+</div>
+
+<div class="row">
+    @if (Session["user"] != null)
+    {
+    <div>
+        @{ViewBag.session = Session["user"];}
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Course Name</th>
+                            <th scope="col">Exam A</th>
+                            <th scope="col">Exam B</th>
+                            @if (ViewBag.session.Rank < 2)
+                            {
+                        <div>
+                            <th scope="col">Grade A</th>
+                            <th scope="col">Grade B</th>
+                            <th scope="col">Final Grade</th>
+                        </div>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var a in ViewBag.courses2)
+                        {
+                        <tr>
+                            <th scope="row">@a.Id</th>
+                            <td>@a.name</td>
+                            <td>@a.aDate - @a.classrooma</td>
+                            <td>@a.bDate - @a.classroomb</td>
+                            @if (ViewBag.session.Rank < 2)
+                            {
+                                <div>
+                                    <td scope="col">@a.aGrade</td>
+                                    <td scope="col">@a.bGrade</td>
+                                    <td scope="col">@(a.bGrade != null ? a.bGrade : (a.aGrade != null ? a.aGrade : "not yet set !"))</td>
+                                </div>
+                            }
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        @if (ViewBag.session.Rank == 2)
+        {
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="container">
+                <h1>Sunday</h1>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Sunday">Show Sunday</button>
+                <div id="Sunday" class="collapse">
+                    @foreach (var a in ViewBag.courses)
+                    {
+                        if (a.day == 1)
+                        {
+                            <h3 class="text-primary">@a.name</h3>
+                            <p class="lead">@(a.startTime / 60):@(a.startTime % 60) - @((a.startTime + a.duration) / 60):@((a.startTime + a.duration) % 60)</p>
+                            <p class="lead">Teacher - @a.teacher</p>
+                            <h4>Classroom - @(a.classroom == null || a.classroom == "" ? "not yet set !" : a.classroom)</h4>
+                            <br />
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="container">
+                <h1>Monday</h1>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Monday">Show Monday</button>
+                <div id="Monday" class="collapse">
+                    @foreach (var a in ViewBag.courses)
+                    {
+                        if (a.day == 2)
+                        {
+                            <h3 class="text-primary">@a.name</h3>
+                            <p class="lead">@(a.startTime / 60):@(a.startTime % 60) - @((a.startTime + a.duration) / 60):@((a.startTime + a.duration) % 60)</p>
+                            <p class="lead">Teacher - @a.teacher</p>
+                            <h4>Classroom - @(a.classroom == null || a.classroom == "" ? "not yet set !" : a.classroom)</h4>
+                            <br />
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="container">
+                <h1>Tuesday</h1>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Tuesday">Show Tuesday</button>
+                <div id="Tuesday" class="collapse">
+                    @foreach (var a in ViewBag.courses)
+                    {
+                        if (a.day == 3)
+                        {
+                            <h3 class="text-primary">@a.name</h3>
+                            <p class="lead">@(a.startTime / 60):@(a.startTime % 60) - @((a.startTime + a.duration) / 60):@((a.startTime + a.duration) % 60)</p>
+                            <p class="lead">Teacher - @a.teacher</p>
+                            <h4>Classroom - @(a.classroom == null || a.classroom == "" ? "not yet set !" : a.classroom)</h4>
+                            <br />
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="container">
+                <h1>Wednesday</h1>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Wednesday">Show Wednesday</button>
+                <div id="Wednesday" class="collapse">
+                    @foreach (var a in ViewBag.courses)
+                    {
+                        if (a.day == 4)
+                        {
+                            <h3 class="text-primary">@a.name</h3>
+                            <p class="lead">@(a.startTime / 60):@(a.startTime % 60) - @((a.startTime + a.duration) / 60):@((a.startTime + a.duration) % 60)</p>
+                            <p class="lead">Teacher - @a.teacher</p>
+                            <h4>Classroom - @(a.classroom == null || a.classroom == "" ? "not yet set !" : a.classroom)</h4>
+                            <br />
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="container">
+                <h1>Thursday</h1>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Thursday">Show Thursday</button>
+                <div id="Thursday" class="collapse">
+                    @foreach (var a in ViewBag.courses)
+                    {
+                        if (a.day == 5)
+                        {
+                            <h3 class="text-primary">@a.name</h3>
+                            <p class="lead">@(a.startTime / 60):@(a.startTime % 60) - @((a.startTime + a.duration) / 60):@((a.startTime + a.duration) % 60)</p>
+                            <p class="lead">Teacher - @a.teacher</p>
+                            <h4>Classroom - @(a.classroom == null || a.classroom == "" ? "not yet set !" : a.classroom)</h4>
+                            <br />
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="container">
+                <h1>Friday</h1>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Friday">Show Friday</button>
+                <div id="Friday" class="collapse">
+                    @foreach (var a in ViewBag.courses)
+                    {
+                        if (a.day == 1)
+                        {
+                            <h3 class="text-primary">@a.name</h3>
+                            <p class="lead">@(a.startTime / 60):@(a.startTime % 60) - @((a.startTime + a.duration) / 60):@((a.startTime + a.duration) % 60)</p>
+                            <p class="lead">Teacher - @a.teacher</p>
+                            <h4>Classroom - @(a.classroom == null || a.classroom == "" ? "not yet set !" : a.classroom)</h4>
+                            <br />
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+                    <div class="container">
+                        <h1>Saturday</h1>
+                        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Saturday">Show Saturday</button>
+                        <div id="Saturday" class="collapse">
+                            @foreach (var a in ViewBag.courses)
+                            {
+                                if (a.day == 7)
+                                {
+                                    <h3 class="text-primary">@a.name</h3>
+                                    <p class="lead">@(a.startTime / 60):@(a.startTime % 60) - @((a.startTime + a.duration) / 60):@((a.startTime + a.duration) % 60)</p>
+                                    <p class="lead">Teacher - @a.teacher</p>
+                                    <h4>Classroom - @(a.classroom == null || a.classroom == "" ? "not yet set !" : a.classroom)</h4>
+                                    <br />
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+
+    </div>
+        }
+        @if (ViewBag.session.Rank < 2)
+        {
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="container">
+                        <h1>Sunday</h1>
+                        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Sunday">Show Sunday</button>
+                        <div id="Sunday" class="collapse">
+                            @foreach (var a in ViewBag.courses)
+                            {
+                                if (a.day == 1)
+                                {
+                                    <h3 class="text-primary">@a.name</h3>
+                                    <p class="lead">@(a.startTime / 60):@(a.startTime % 60) - @((a.startTime + a.duration) / 60):@((a.startTime + a.duration) % 60)</p>
+                                    <p class="lead">Teacher - @a.teacher</p>
+                                    <h4>Classroom - @(a.classroom == null || a.classroom == "" ? "not yet set !" : a.classroom)</h4>
+                                    <br />
+                                }
+                            }
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <div class="container">
+                        <h1>Monday</h1>
+                        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Monday">Show Monday</button>
+                        <div id="Monday" class="collapse">
+                            @foreach (var a in ViewBag.courses)
+                            {
+                                if (a.day == 2)
+                                {
+                                    <h3 class="text-primary">@a.name</h3>
+                                    <p class="lead">@(a.startTime / 60):@(a.startTime % 60) - @((a.startTime + a.duration) / 60):@((a.startTime + a.duration) % 60)</p>
+                                    <p class="lead">Teacher - @a.teacher</p>
+                                    <h4>Classroom - @(a.classroom == null || a.classroom == "" ? "not yet set !" : a.classroom)</h4>
+                                    <br />
+                                }
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+                    <div class="container">
+                        <h1>Tuesday</h1>
+                        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Tuesday">Show Tuesday</button>
+                        <div id="Tuesday" class="collapse">
+                            @foreach (var a in ViewBag.courses)
+                            {
+                                if (a.day == 3)
+                                {
+                                    <h3 class="text-primary">@a.name</h3>
+                                    <p class="lead">@(a.startTime / 60):@(a.startTime % 60) - @((a.startTime + a.duration) / 60):@((a.startTime + a.duration) % 60)</p>
+                                    <p class="lead">Teacher - @a.teacher</p>
+                                    <h4>Classroom - @(a.classroom == null || a.classroom == "" ? "not yet set !" : a.classroom)</h4>
+                                    <br />
+                                }
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+                    <div class="container">
+                        <h1>Wednesday</h1>
+                        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Wednesday">Show Wednesday</button>
+                        <div id="Wednesday" class="collapse">
+                            @foreach (var a in ViewBag.courses)
+                            {
+                                if (a.day == 4)
+                                {
+                                    <h3 class="text-primary">@a.name</h3>
+                                    <p class="lead">@(a.startTime / 60):@(a.startTime % 60) - @((a.startTime + a.duration) / 60):@((a.startTime + a.duration) % 60)</p>
+                                    <p class="lead">Teacher - @a.teacher</p>
+                                    <h4>Classroom - @(a.classroom == null || a.classroom == "" ? "not yet set !" : a.classroom)</h4>
+                                    <br />
+                                }
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+                    <div class="container">
+                        <h1>Thursday </h1>
+                        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Thursday ">Show Thursday</button>
+                        <div id="Thursday " class="collapse">
+                            @foreach (var a in ViewBag.courses)
+                            {
+                                if (a.day == 5)
+                                {
+                                    <h3 class="text-primary">@a.name</h3>
+                                    <p class="lead">@(a.startTime / 60):@(a.startTime % 60) - @((a.startTime + a.duration) / 60):@((a.startTime + a.duration) % 60)</p>
+                                    <p class="lead">Teacher - @a.teacher</p>
+                                    <h4>Classroom - @(a.classroom == null || a.classroom == "" ? "not yet set !" : a.classroom)</h4>
+                                    <br />
+                                }
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+                    <div class="container">
+                        <h1>Friday</h1>
+                        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Friday">Show Friday</button>
+                        <div id="Friday" class="collapse">
+                            @foreach (var a in ViewBag.courses)
+                            {
+                                if (a.day == 6)
+                                {
+                                    <h3 class="text-primary">@a.name</h3>
+                                    <p class="lead">@(a.startTime / 60):@(a.startTime % 60) - @((a.startTime + a.duration) / 60):@((a.startTime + a.duration) % 60)</p>
+                                    <p class="lead">Teacher - @a.teacher</p>
+                                    <h4>Classroom - @(a.classroom == null || a.classroom == "" ? "not yet set !" : a.classroom)</h4>
+                                    <br />
+                                }
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+                    <div class="container">
+                        <h1>Saturday </h1>
+                        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Saturday">Show Saturday</button>
+                        <div id="Saturday" class="collapse">
+                            @foreach (var a in ViewBag.courses)
+                            {
+                                if (a.day == 7)
+                                {
+                                    <h3 class="text-primary">@a.name</h3>
+                                    <p class="lead">@(a.startTime / 60):@(a.startTime % 60) - @((a.startTime + a.duration) / 60):@((a.startTime + a.duration) % 60)</p>
+                                    <p class="lead">Teacher - @a.teacher</p>
+                                    <h4>Classroom - @(a.classroom == null || a.classroom == "" ? "not yet set !" : a.classroom)</h4>
+                                    <br />
+                                }
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        }
+    </div>
+    }
+    else
+    {
+        <div class="col-md-12 text-center">
+            <a href="/Home/Login" class="lead btn btn-primary">Please login to proceed</a>
+        </div>
+    }
+
+</div>

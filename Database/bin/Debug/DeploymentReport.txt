@@ -1,0 +1,23 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [dbo].[Users]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The column [dbo].[Users].[FullName] is being dropped, data loss could occur.
+       The column [dbo].[Users].[Id] is being dropped, data loss could occur.
+       The type for column Password in table [dbo].[Users] is currently  NVARCHAR (100) NOT NULL but is being changed to 
+         NVARCHAR (50) NOT NULL. Data loss could occur.
+
+** User actions
+     Table rebuild
+       [dbo].[Users] (Table)
+
+** Supporting actions
+
+The column [dbo].[Users].[FullName] is being dropped, data loss could occur.
+The column [dbo].[Users].[Id] is being dropped, data loss could occur.
+The type for column Password in table [dbo].[Users] is currently  NVARCHAR (100) NOT NULL but is being changed to  NVARCHAR (50) NOT NULL. Data loss could occur.
+

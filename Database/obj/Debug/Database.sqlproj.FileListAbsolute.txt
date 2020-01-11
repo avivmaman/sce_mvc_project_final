@@ -1,0 +1,10 @@
+C:\Users\mmnav\source\repos\MVC\Database\bin\Debug\Database.dacpac
+C:\Users\mmnav\source\repos\MVC\Database\bin\Debug\Database.dll
+C:\Users\mmnav\source\repos\MVC\Database\bin\Debug\Database.pdb
+C:\Users\mmnav\source\repos\MVC\Database\obj\Debug\Database.dll
+C:\Users\mmnav\source\repos\MVC\Database\obj\Debug\Database.pdb
+C:\Users\mmnav\source\repos\MVC\Database\obj\Debug\Database.sqlprojAssemblyReference.cache
+C:\Users\mmnav\source\repos\MVC\Database\obj\Debug\Model.xml
+C:\Users\mmnav\source\repos\MVC\Database\obj\Debug\refactor.xml
+C:\Users\mmnav\source\repos\MVC\Database\obj\Debug\postdeploy.sql
+C:\Users\mmnav\source\repos\MVC\Database\obj\Debug\predeploy.sql

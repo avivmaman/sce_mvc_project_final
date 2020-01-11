@@ -1,0 +1,94 @@
+﻿@model IEnumerable<MVC.Controllers.newCourse>
+@{ViewBag.user = Session["user"];}
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@if(ViewBag.user.Rank == 3)
+{
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Start time
+        </th>
+        <th>
+            End time
+        </th>
+        <th>
+            Duration (Mins)
+        </th>
+        <th>
+            Teacher
+        </th>
+        <th>
+            Course Name
+        </th>
+        <th>
+            Course Classroom
+        </th>
+        <th>
+            Course Day
+        </th>
+        <th>
+            Exam A
+        </th>
+        <th>
+            Exam B
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @(item.startTime / 60):@((item.startTime % 60))
+            </td>
+            <td>
+                @((item.startTime + item.duration) / 60):@(((item.startTime + item.duration) % 60))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.teacher)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.classroom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.day)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.aDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bDate)
+            </td>
+            <td>
+                @if (ViewBag.user.Rank == 3)
+                {
+                    <div>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+                        <a href="/Courses/AddToCourse?cid=@item.Id">Add Student</a> |
+                        <a href="/Courses/RemoveFromCourse?cid=@item.Id">Remove Student</a> |
+                    </div>
+                }
+                <a href="/Grades/?cid=@item.Id">Grades</a>
+
+            </td>
+        </tr>
+    }
+
+</table>

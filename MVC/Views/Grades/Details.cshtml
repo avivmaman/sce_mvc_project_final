@@ -1,0 +1,50 @@
+﻿@model MVC.Models.Grades
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Grades</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.courseID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.courseID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.studentID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.studentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aGrade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aGrade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bGrade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bGrade)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
