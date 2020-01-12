@@ -44,6 +44,12 @@ namespace MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,StudentID,Password,Email,FullName,Rank")] User user)
         {
+            List<User> tmp = db.User.Where(x => x.StudentID == user.StudentID).ToList();
+            if(tmp.Count != 0)
+            {
+                ViewBag.error = "User with that id already exists";
+                return View(user);
+            }
             if (ModelState.IsValid)
             {
                 db.User.Add(user);

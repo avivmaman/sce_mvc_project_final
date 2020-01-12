@@ -8,3 +8,13 @@ C:\Users\mmnav\source\repos\MVC\Database\obj\Debug\Model.xml
 C:\Users\mmnav\source\repos\MVC\Database\obj\Debug\refactor.xml
 C:\Users\mmnav\source\repos\MVC\Database\obj\Debug\postdeploy.sql
 C:\Users\mmnav\source\repos\MVC\Database\obj\Debug\predeploy.sql
+C:\Users\david\Desktop\mvc\Database\bin\Debug\Database.dacpac
+C:\Users\david\Desktop\mvc\Database\bin\Debug\Database.dll
+C:\Users\david\Desktop\mvc\Database\bin\Debug\Database.pdb
+C:\Users\david\Desktop\mvc\Database\obj\Debug\Database.sqlprojAssemblyReference.cache
+C:\Users\david\Desktop\mvc\Database\obj\Debug\Model.xml
+C:\Users\david\Desktop\mvc\Database\obj\Debug\refactor.xml
+C:\Users\david\Desktop\mvc\Database\obj\Debug\postdeploy.sql
+C:\Users\david\Desktop\mvc\Database\obj\Debug\predeploy.sql
+C:\Users\david\Desktop\mvc\Database\obj\Debug\Database.dll
+C:\Users\david\Desktop\mvc\Database\obj\Debug\Database.pdb
